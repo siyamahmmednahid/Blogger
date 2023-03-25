@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title_block %}Blogs{% endblock %}</title>
+</head>
+<body>
+    <header class="headerMain">
+        <div class="container">
+            <div class="wrapper">
+                <a href="#" class="logo">
+                    <img src="{% static 'images/logo.png' %}" width="150px" alt="">
+                </a>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block bodyBlock %}
+    {% endblock %}
+</body>
+</html>

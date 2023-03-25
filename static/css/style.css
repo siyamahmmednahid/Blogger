@@ -1,0 +1,89 @@
+/* ==================== Root Style ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+:root {
+    --bgColor: #ffffff;
+    --primaryColor: #ffa801;
+    --titleColor: #1e272e;
+    --textColor: #808e9b;
+    --borderColor: #f8f8f8;
+
+    --titleSize: 24px;
+    --titleWeight: 600;
+    --textSize: 14px;
+    --textWeight: 400;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+/* ==================== Global Area ==================== */
+body {
+    background: var(--bgColor);
+    margin: 0;
+}
+
+
+.container {
+    max-width: 1310px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+
+.wrapper {
+    padding: 70px 0;
+}
+
+
+a {
+    font-size: var(--textSize);
+    font-weight: var(--textWeight);
+    color: var(--titleColor);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a:hover {
+    color: var(--primaryColor);
+}
+
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: var(--textSize);
+    font-weight: var(--textWeight);
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* ==================== Header Area ==================== */
+.headerMain {
+    border-bottom: 1px solid var(--borderColor);
+}
+.headerMain .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.headerMain .menu ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
