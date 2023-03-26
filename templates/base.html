@@ -12,14 +12,14 @@
     <header class="headerMain">
         <div class="container">
             <div class="wrapper">
-                <a href="#" class="logo">
+                <a href="{% url 'index' %}" class="logo">
                     <img src="{% static 'images/logo.png' %}" width="150px" alt="">
                 </a>
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">My Account</a></li>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'Blog:index' %}">Blogs</a></li>
+                        <li><a href="{% url 'Accounts:myAccount' %}">My Account</a></li>
                     </ul>
                 </div>
             </div>

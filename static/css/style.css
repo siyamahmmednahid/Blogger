@@ -5,14 +5,19 @@
 :root {
     --bgColor: #ffffff;
     --primaryColor: #ffa801;
+    --secondaryColor: #ffffff;
     --titleColor: #1e272e;
     --textColor: #808e9b;
-    --borderColor: #f8f8f8;
+    --dangerColor: #fc5c65;
+    --dangerBgColor: #ffe3e5;
+    --lightBorderColor: #f8f8f8;
+    --borderColor: #e0e0e0;
 
     --titleSize: 24px;
     --titleWeight: 600;
     --textSize: 14px;
     --textWeight: 400;
+    --smTextSize: 12px;
 }
 
 
@@ -43,16 +48,8 @@ body {
     padding: 70px 0;
 }
 
-
-a {
-    font-size: var(--textSize);
-    font-weight: var(--textWeight);
-    color: var(--titleColor);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-a:hover {
-    color: var(--primaryColor);
+.textCenter {
+    text-align: center;
 }
 
 
@@ -61,6 +58,7 @@ p {
     padding: 0;
     font-size: var(--textSize);
     font-weight: var(--textWeight);
+    color: var(--textColor);
 }
 
 
@@ -71,10 +69,42 @@ ul {
 }
 
 
+a {
+    font-size: var(--textSize);
+    font-weight: var(--textWeight);
+    color: var(--titleColor);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a.link {
+    color: var(--primaryColor);
+}
+a:hover {
+    color: var(--primaryColor);
+}
+
+
+.btn {
+    background: var(--primaryColor);
+    color: var(--secondaryColor);
+    border: 1px solid var(--primaryColor);
+    font-size: var(--textSize);
+    font-weight: var(--textWeight);
+    border-radius: 3px;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.btn:hover {
+    background: var(--secondaryColor);
+    color: var(--primaryColor);
+}
+
+
 
 /* ==================== Header Area ==================== */
 .headerMain {
-    border-bottom: 1px solid var(--borderColor);
+    border-bottom: 1px solid var(--lightBorderColor);
 }
 .headerMain .wrapper {
     display: flex;
@@ -86,4 +116,62 @@ ul {
     display: flex;
     align-items: center;
     gap: 30px;
+}
+
+
+
+/* ==================== Form Style ==================== */
+label {
+    font-size: var(--textSize);
+    font-weight: var(--textWeight);
+    color: var(--textColor);
+    display: block;
+    margin: 5px 0;
+}
+.helptext {
+    display: none;
+}
+.errorlist li {
+    padding: 5px 10px;
+    color: var(--dangerColor);
+    background-color: var(--dangerBgColor);
+    border: 1px solid var(--dangerColor);
+    border-radius: 3px;
+    margin: 0 auto;
+    opacity: 1;
+}
+input {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--borderColor);
+    border-radius: 3px;
+    font-size: var(--textSize);
+    font-weight: var(--textWeight);
+    color: var(--titleColor);
+    outline: none;
+}
+input:focus {
+    border: 1px solid var(--primaryColor) !important;
+}
+
+form ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 5px;
+}
+form ul li {
+    margin: 0;
+    font-size: var(--smTextSize);
+    font-weight: var(--textWeight);
+    color: var(--textColor);
+    opacity: 0.5;
+}
+form p:not(:first-child) {
+    margin-top: 20px;
+}
+form .btn {
+    margin-top: 20px;
 }
