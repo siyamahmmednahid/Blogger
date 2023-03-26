@@ -38,7 +38,9 @@
                     </h3>
                     <div class="userArea">
                         <div class="user">
-                            <h4 class="name">{{ user.first_name }} {{ user.last_name}}</h4>
+                            <h4 class="name">
+                                <a href="{% url 'Accounts:myAccount' %}">{{ user.first_name }} {{ user.last_name}}</a>
+                            </h4>
                             <p class="type">
                                 {% if user.is_superuser%}
                                     Admin
@@ -48,7 +50,9 @@
                             </p>
                         </div>
                         <div class="userImage">
-                            <img src="{% static 'images/user.jpg' %}" alt="user">
+                            <a href="{% url 'Accounts:myAccount' %}">
+                                <img src="{% static 'images/user.jpg' %}" alt="user">
+                            </a>
                         </div>
                     </div>
                 </div>

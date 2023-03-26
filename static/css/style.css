@@ -36,6 +36,9 @@ body {
     background: var(--bgColor);
     margin: 0;
 }
+body.site {
+    padding-top: 70px;
+}
 
 
 .container {
@@ -113,6 +116,10 @@ a:hover {
 
 /* ==================== Header Area ==================== */
 .headerMain {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: var(--bgColor);
     border-bottom: 1px solid var(--lightBorderColor);
 }
 .headerMain .wrapper {
@@ -120,6 +127,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
+    height: 70px;
 }
 .headerMain .menu ul {
     display: flex;
@@ -262,3 +270,18 @@ form .btn {
     height: 36px;
     border-radius: 50%;
 }
+
+
+
+/* ==================== Authentication Area ==================== */
+.authentication {
+    background: var(--bodyBG);
+    height: calc(100vh - 70px);
+}
+.authentication .card {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+    background: var(--bgColor);
+} 

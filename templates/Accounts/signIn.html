@@ -3,15 +3,17 @@
 {% load crispy_forms_tags %}
 
 {% block bodyBlock %}
-<section class="signInArea">
+<section class="signInArea authentication">
     <div class="container">
         <div class="wrapper">
-            <form action="" method="POST">
-                {{ form.as_p }}
-                {% csrf_token %}
-                <input type="submit" value="Submit" class="btn" />
-                <p class="textCenter">Don't have account? <a href="/accounts/signup/" class="link">Create Account</a></p>
-            </form>
+            <div class="card">
+                <form action="" method="POST">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input type="submit" value="Submit" class="btn" />
+                    <p class="textCenter">Don't have account? <a href="/accounts/signup/" class="link">Create Account</a></p>
+                </form>
+            </div>
         </div>
     </div>
 </section>
