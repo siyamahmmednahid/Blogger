@@ -32,7 +32,7 @@ def SignIn(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse('Accounts:myAccount'))
+                return HttpResponseRedirect(reverse('Dashboard:dashboard'))
     dict = {'form': form, 'title': 'Sign In'}
     return render(request, 'Accounts/signIn.html', {'form': form})
 
@@ -50,3 +50,19 @@ def SignOut(request):
 @login_required(login_url='Accounts:signIn')
 def MyAccount(request):
     return render(request, 'Accounts/myAccount.html')
+
+
+
+# Add Profile Pic
+@login_required(login_url='Accounts:signIn')
+def AddProfilePic(request):
+    form = forms.ProfilePicForm()
+    if request.method == 'POST':
+        form = forms.ProfilePicForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            return HttpResponseRedirect(reverse('Accounts:myAccount'))
+    dict = {'form': form, 'title': 'Add Profile Pic'}
+    return render(request, 'Accounts/addProfilePic.html', {'form': form})

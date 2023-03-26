@@ -9,4 +9,5 @@ urlpatterns = [
     path('signin/', views.SignIn, name='signIn'),
     path('signup/', views.SignUp, name='signUp'),
     path('signout/', views.SignOut, name='signOut'),
+    path('addprofilepic/', views.AddProfilePic, name='addProfilePic'),
 ]

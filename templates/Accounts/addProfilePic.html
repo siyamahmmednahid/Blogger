@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block bodyBlock %}
+<section class="signInArea authentication">
+    <div class="container">
+        <div class="wrapper">
+            <div class="card">
+                <form action="" method="POST">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input type="submit" value="Submit" class="btn" />
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
