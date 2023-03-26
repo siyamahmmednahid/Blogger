@@ -3,6 +3,7 @@
 
 
 :root {
+    --bodyBG: #f8f8f8;
     --bgColor: #ffffff;
     --primaryColor: #ffa801;
     --secondaryColor: #ffffff;
@@ -14,7 +15,7 @@
     --borderColor: #e0e0e0;
 
     --titleSize: 24px;
-    --titleWeight: 600;
+    --titleWeight: 500;
     --textSize: 14px;
     --textWeight: 400;
     --smTextSize: 12px;
@@ -50,6 +51,14 @@ body {
 
 .textCenter {
     text-align: center;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: var(--titleWeight);
+    color: var(--titleColor);
 }
 
 
@@ -174,4 +183,82 @@ form p:not(:first-child) {
 }
 form .btn {
     margin-top: 20px;
+}
+
+
+
+/* ==================== Dashboard Style ==================== */
+.dashboard {
+    background: var(--bodyBG);
+}
+.dashboardArea {
+    display: flex;
+}
+.sideBarArea {
+    width: 300px;
+    border-right: 1px solid var(--lightBorderColor);
+    background: var(--bgColor);
+    height: 100vh;
+    padding: 20px;
+}
+.sideBarArea .sideBarLogo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sideBarArea .sideBarLogo img {
+    max-width: 160px;
+}
+.sideBarArea .sideBarMenu a {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+.sideBarArea .sideBarMenu a:hover {
+    background: var(--primaryColor);
+    color: var(--secondaryColor);
+}
+.sideBarArea .sideBarMenu a.active {
+    background: var(--primaryColor);
+    color: var(--secondaryColor);
+}
+.sideBarArea .sideBarMenu svg {
+    margin-right: 10px;
+    width: 16px;
+}
+
+
+.contentArea {
+    width: calc(100% - 300px);
+}
+.titleArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--bgColor);
+    margin: 20px 0;
+    border-radius: 5px;
+}
+.userArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.userArea .user {
+    text-align: right;
+}
+.userArea .user .name {
+    font-size: var(--textSize);
+}
+.userArea .user .type {
+    font-size: var(--smTextSize);
+    opacity: 0.7;
+}
+.userArea img {
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
 }

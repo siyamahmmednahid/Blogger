@@ -1,7 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'baseDashboard.html' %}
+
+{% block titleBlock %}Profile | {{user.first_name}} {{user.last_name}}{% endblock %}
 
 {% block bodyBlock %}
-
-<h1>My Account</h1>
-
+<section class="profileArea">
+    <h1>Profile</h1>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+</section>
 {% endblock %}

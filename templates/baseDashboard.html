@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block titleBlock %}Blogs{% endblock %}</title>
+</head>
+<body class="dashboard">
+    <main class="dashboardArea">
+        <div class="sideBarArea">
+            <div class="sideBarLogo">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+            </div>
+            <div class="sideBarMenu">
+                <ul>
+                    <li>
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Blogs</a></li>
+                    <li>
+                        <a href="" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Users</a>
+                    </li>
+                    <li><a href="{% url 'Accounts:signOut' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contentArea">
+            <div class="container">
+                <div class="titleArea">
+                    <h3 class="title">
+                        {% block pageTitle %}
+                            Blogs
+                        {% endblock %}
+                    </h3>
+                    <div class="userArea">
+                        <div class="user">
+                            <h4 class="name">{{ user.first_name }} {{ user.last_name}}</h4>
+                            <p class="type">
+                                {% if user.is_superuser%}
+                                    Admin
+                                {% else %}
+                                    User
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="userImage">
+                            <img src="{% static 'images/user.jpg' %}" alt="user">
+                        </div>
+                    </div>
+                </div>
+                {% block bodyBlock %}
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

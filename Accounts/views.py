@@ -1,22 +1,27 @@
 from django.shortcuts import render
+from django.shortcuts import HttpResponseRedirect
+from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from . import forms
 
 
-# Create your views here.
-def MyAccount(request):
-    return render(request, 'Accounts/myAccount.html')
 
+# Sign Up
 def SignUp(request):
-    form = UserCreationForm()
+    form = forms.SignUpForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = forms.SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'Accounts/myAccount.html')
+            return HttpResponseRedirect(reverse('Accounts:myAccount'))
     dict = {'form': form, 'title': 'Sign Up'}
     return render(request, 'Accounts/signUp.html', {'form': form})
 
+
+
+# Sign In
 def SignIn(request):
     form = AuthenticationForm()
     if request.method == 'POST':
@@ -27,6 +32,21 @@ def SignIn(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return render(request, 'Accounts/myAccount.html')
+                return HttpResponseRedirect(reverse('Accounts:myAccount'))
     dict = {'form': form, 'title': 'Sign In'}
     return render(request, 'Accounts/signIn.html', {'form': form})
+
+
+
+# Sign Out
+@login_required(login_url='Accounts:signIn')
+def SignOut(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('Accounts:myAccount'))
+
+
+
+# My Account
+@login_required(login_url='Accounts:signIn')
+def MyAccount(request):
+    return render(request, 'Accounts/myAccount.html')
