@@ -1,22 +1,47 @@
 {% extends 'baseDashboard.html' %}
 {% load static %}
 
+
 {% block titleBlock %}Profile | {{user.first_name}} {{user.last_name}}{% endblock %}
 
+
 {% block pageTitle %} Profile {% endblock %}
+
+
 {% block bodyBlock %}
-<section class="profileHeaderArea card">
+<section class="profileHeroArea card">
     <div class="coverPicArea">
         <img src="{% static 'images/cover.jpg' %}" alt="Cover Pic">
     </div>
     <div class="profileInfoArea">
-        <div class="profilePic">
-            <img src="{% static 'images/user.jpg' %}" alt="Profile Image">
+        <div class="info">
+            <div class="profilePic">
+                <img src="{% static 'images/user.jpg' %}" alt="Profile Image">
+            </div>
+            <div class="profileInfo">
+                <h2 class="name">{{user.first_name}} {{user.last_name}}</h2>
+                <p>{{user.email}}</p>
+            </div>
         </div>
-        <div class="profileInfo">
-            <h2>{{user.first_name}} {{user.last_name}}</h2>
-            <p>{{user.email}}</p>
+        <div class="buttons">
+            <a href="" class="btn btn-primary">Edit Profile</a>
+            <a href="" class="btn btn-primary">Change Password</a>
         </div>
+    </div>
+</section>
+<section class="profileContentArea">
+    <div class="authorInfo card">
+        <div class="intro block">
+            <h4 class="title">Intro</h4>
+            <p>Lorem ip sum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+        </div>
+        <div class="intro block">
+            <h4 class="title">Author info</h4>
+            <p>Lorem ip sum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+        </div>
+    </div>
+    <div class="authorPosts card">
+        <h4>Write post</h4>
     </div>
 </section>
 {% endblock %}
