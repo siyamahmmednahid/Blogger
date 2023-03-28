@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProfilePic
+from .models import ProfileInfo
 
 # Register your models here.
-admin.site.register(ProfilePic)
+admin.site.register(ProfileInfo)

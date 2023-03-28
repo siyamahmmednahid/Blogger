@@ -66,3 +66,25 @@ def AddProfilePic(request):
             return HttpResponseRedirect(reverse('Accounts:myAccount'))
     dict = {'form': form, 'title': 'Add Profile Pic'}
     return render(request, 'Accounts/addProfilePic.html', {'form': form})
+
+
+
+# Change Profile Pic
+@login_required(login_url='Accounts:signIn')
+def ChangeProfilePic(request):
+    form = forms.ProfilePicForm(instance=request.user.Profile_Pic)
+    if request.method == 'POST':
+        form = forms.ProfilePicForm(request.POST, request.FILES, instance=request.user.Profile_Pic)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('Accounts:myAccount'))
+    dict = {'form': form, 'title': 'Edit Profile Pic'}
+    return render(request, 'Accounts/addProfilePic.html', {'form': form})
+
+
+
+# Delete Profile Pic
+@login_required(login_url='Accounts:signIn')
+def DeleteProfilePic(request):
+    request.user.Profile_Pic.delete()
+    return HttpResponseRedirect(reverse('Accounts:myAccount'))

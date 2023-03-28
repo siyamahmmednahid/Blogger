@@ -1,13 +1,22 @@
 {% extends 'baseDashboard.html' %}
+{% load static %}
 
 {% block titleBlock %}Profile | {{user.first_name}} {{user.last_name}}{% endblock %}
 
+{% block pageTitle %} Profile {% endblock %}
 {% block bodyBlock %}
-<section class="profileArea">
-    <h1>Profile</h1>
-    <p>Username: {{ user.username }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
-    <a href="{% url 'Accounts:addProfilePic' %}" class="btn">Add Profile Pic</a>
+<section class="profileHeaderArea card">
+    <div class="coverPicArea">
+        <img src="{% static 'images/cover.jpg' %}" alt="Cover Pic">
+    </div>
+    <div class="profileInfoArea">
+        <div class="profilePic">
+            <img src="{% static 'images/user.jpg' %}" alt="Profile Image">
+        </div>
+        <div class="profileInfo">
+            <h2>{{user.first_name}} {{user.last_name}}</h2>
+            <p>{{user.email}}</p>
+        </div>
+    </div>
 </section>
 {% endblock %}

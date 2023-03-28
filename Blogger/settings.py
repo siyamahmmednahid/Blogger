@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'Users',
     'Blog',
     'crispy_forms',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'Bootstrap4'
